@@ -1,0 +1,11 @@
+# Ignore the build and lib dirs
+build
+lib/*
+
+# Ignore any executables
+bin/*
+
+# Ignore vscode or vim specific files, add required files for your favorite editor
+.vscode
+*.swp
+*.swo
