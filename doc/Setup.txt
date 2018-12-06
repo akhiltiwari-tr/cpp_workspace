@@ -9,3 +9,5 @@ if you have just cloned it, mkdir the bin/ and build/ directories.
 "include/": will hold all our custom headerfiles
 "lib/": will hold any third party library which we might need(HIGHLY UNLIKELY)
 "src/": will have the source files (*.cpp)
+
+run the executable as: ./bin/executable
