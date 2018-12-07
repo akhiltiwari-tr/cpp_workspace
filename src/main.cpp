@@ -27,16 +27,6 @@ private:
 
 BusSystem::BusSystem(vector<uint64_t> new_stops) : stops{new_stops} {};
 
-
-uint64_t rev_bit(uint64_t num, uint64_t bit_pos){
-    auto i=0, x=1
-    while(i<=bit_pos){
-        x<<1;
-        i++;
-    }
-    return num ^ x;
-}
-
 /*
  * Computes the 8 bus stops closest to the given position, in order of
  * increasing distance.
@@ -64,28 +54,7 @@ pair<uint64_t, bool>
 BusSystem::reverse_closest_stops(const vector<uint64_t> &closest) const {
   // TODO: Return a pair (p, true), such that closest_stops(p)
   //       would return exactly the given list of closest stops.
-  //       Return (anything, false) if that is not possible.
-
-// for(uint64_t x=0; x== std::numeric_limits<uint64_t>::max();i++)
-// {
-  
-// }
-auto x= closest[0];
-uint64_t dis=0, curr=0;
-while(){
-    
-}
-for(auto itr: closest){
-     dis = x^itr;
-     if(dis<curr) {
-         x=rev_bit(x,i+1);
-         break;
-     }
-     else{
-         curr = dis;
-     }
-}
-
+  //       Return (anything, false) if that is not possible.  
   return pair<uint64_t, bool>(0, false);
 }
 
