@@ -55,7 +55,21 @@ BusSystem::reverse_closest_stops(const vector<uint64_t> &closest) const {
   // TODO: Return a pair (p, true), such that closest_stops(p)
   //       would return exactly the given list of closest stops.
   //       Return (anything, false) if that is not possible.  
-  return pair<uint64_t, bool>(0, false);
+    uint64_t position=0, flag=0, diff_pos=0;
+    for(uint64_t i=0; i<closest.size()-1; i++){ //travel through the stops taking one pair at a time
+    uint64_t xored = closest[i] ^ closest[i+1];  // getting the bit positions where they differ
+  diff_pos = log2(xored);// getting the MSB bit position where they differ.
+   if(flag & 1<<diff_pos ) {
+       if((position & (uint64_t)1<<diff_pos) == (closest[i]& (uint64_t)   1<<diff_pos)){
+        return pair<uint64_t, bool>(uint64_t(0), false);
+       }
+    }
+    else{
+       flag |= 1<<diff_pos;
+      position = position | (closest[i] & (uint64_t)1<<diff_pos);
+    }
+  }
+  return pair<uint64_t, bool>(position, true);
 }
 
 /* Returns a random unsigned 64 bit integer. */
